@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #c9c9c9;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(16, 50px);
+}
+
+.pageHeading {
+  margin-bottom: 16px;
+  color: #ff0000d1;
+}
+
+.wikipediaLink {
+  color: black;
+  margin-bottom: 24px;
+}
