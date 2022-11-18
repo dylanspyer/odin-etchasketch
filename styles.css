@@ -19,11 +19,27 @@ body {
 }
 
 .pageHeading {
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   color: #ff0000d1;
+  font-size: 48px;
 }
 
 .wikipediaLink {
-  color: black;
+  color: #0232b7c0;
+  font-weight: bold;
+
   margin-bottom: 24px;
+  font-size: 14px;
+  text-decoration: none;
+}
+footer {
+  display: flex;
+  color: white;
+  background-color: #111111;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  min-width: 100%;
+  height: 48px;
 }
