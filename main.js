@@ -42,17 +42,16 @@ sizeSlider.addEventListener("change", function () {
 });
 
 //color mode button
-colorPicker.oninput = (e) => colorPickerMode(e.target.value);
+colorPicker.oninput = colorPickerMode();
+colorButton.addEventListener("click", () => colorPickerMode());
 
 function colorPickerMode() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
-  colorButton.addEventListener("click", () => {
-    gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", () => {
-        gridCell.style.background = colorPicker.value;
-      })
-    );
-  });
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("mouseover", () => {
+      gridCell.style.background = colorPicker.value;
+    })
+  );
 }
 
 //Rainbow button
@@ -142,6 +141,8 @@ window.onload = () => {
 };
 
 //Remaining tasks:
-//Color picker mode
+//Create shading function
+//Create lightening function
+//Make the grid stay the same size and boxes change sizes within it
 //Make all functions "click and hold" events, rather than just "mouseover"
 //Layout and styling

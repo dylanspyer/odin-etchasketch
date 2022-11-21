@@ -14,7 +14,7 @@ body {
 }
 
 .pageHeading {
-  margin: 36px 0px 6px 0px;
+  margin: 28px 0px 6px 0px;
   color: #eb1818;
   font-size: 80px;
 }
@@ -22,7 +22,7 @@ body {
 .wikipediaLink {
   color: #0b3954;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   font-size: 14px;
   text-decoration: none;
 }
@@ -30,11 +30,16 @@ body {
 .gridContainer {
   display: grid;
   margin: auto auto;
+  box-shadow: 2px 2px 20px 3px #a3a2a2;
+  min-height: 500px;
+  min-width: 500px;
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .gridCell {
-  border: 1px solid black;
-  padding: 15px;
+  /* border: 1px solid black; */
+  /* padding: 15px; */
 }
 
 .controlsPanelHeading {
@@ -42,6 +47,17 @@ body {
   text-align: center;
   color: #eb1818;
   margin-bottom: 12px;
+}
+
+.colorPicker {
+  background-color: #d2d1d1;
+  border: none;
+}
+
+.colorPicker::-webkit-color-swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .controlsButtons {
