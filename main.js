@@ -1,6 +1,7 @@
 //Container for grid cells
 const gridContainer = document.querySelector(".gridContainer");
 //Controls buttons
+const controlsButtons = document.querySelectorAll(".controlsButtons");
 const clearButton = document.querySelector(".clearButton");
 const ninetiesButton = document.querySelector(".ninetiesButton");
 const rainbowButton = document.querySelector(".rainbowButton");
@@ -40,6 +41,17 @@ sizeSlider.addEventListener("change", function () {
   rainbowColors();
   eraseOneGridCell();
 });
+
+//Add active state for buttons
+for (let i = 0; i < controlsButtons.length; i++) {
+  controlsButtons[i].addEventListener("click", function () {
+    let current = document.getElementsByClassName("active");
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+    this.className += " active";
+  });
+}
 
 //color mode button
 colorPicker.oninput = colorPickerMode();
