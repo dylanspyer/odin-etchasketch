@@ -57,11 +57,17 @@ for (let i = 0; i < controlsButtons.length; i++) {
 colorPicker.oninput = colorPickerMode();
 colorButton.addEventListener("click", () => colorPickerMode());
 
+//experimenting
+
+//experimenting
+
 function colorPickerMode() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   gridCells.forEach((gridCell) =>
-    gridCell.addEventListener("mouseover", () => {
-      gridCell.style.background = colorPicker.value;
+    gridCell.addEventListener("mouseover", (event) => {
+      if (event.buttons === 1) {
+        gridCell.style.background = colorPicker.value;
+      }
     })
   );
 }
@@ -71,7 +77,7 @@ function rainbowColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   rainbowButton.addEventListener("click", () => {
     gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", () => {
+      gridCell.addEventListener("mouseover", (event) => {
         let color = [
           "#ff0000",
           "#ffa500",
@@ -81,8 +87,10 @@ function rainbowColors() {
           "#4b0082",
           "#ee82ee",
         ];
-        gridCell.style.background =
-          color[Math.floor(Math.random() * color.length)];
+        if (event.buttons === 1) {
+          gridCell.style.background =
+            color[Math.floor(Math.random() * color.length)];
+        }
       })
     );
   });
@@ -93,10 +101,12 @@ function ninetiesColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   ninetiesButton.addEventListener("click", () => {
     gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", () => {
+      gridCell.addEventListener("mouseover", (event) => {
         let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
-        gridCell.style.background =
-          color[Math.floor(Math.random() * color.length)];
+        if (event.buttons === 1) {
+          gridCell.style.background =
+            color[Math.floor(Math.random() * color.length)];
+        }
       })
     );
   });
@@ -107,8 +117,10 @@ function eraseOneGridCell() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   eraserButton.addEventListener("click", () => {
     gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", () => {
-        gridCell.style.background = "#d2d1d1";
+      gridCell.addEventListener("mouseover", (event) => {
+        if (event.buttons === 1) {
+          gridCell.style.background = "#d2d1d1";
+        }
       })
     );
   });
@@ -151,10 +163,3 @@ window.onload = () => {
   rainbowColors();
   eraseOneGridCell();
 };
-
-//Remaining tasks:
-//Create shading function
-//Create lightening function
-//Make the grid stay the same size and boxes change sizes within it
-//Make all functions "click and hold" events, rather than just "mouseover"
-//Layout and styling
