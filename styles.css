@@ -29,7 +29,6 @@ body {
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(16, 50px);
   margin: auto auto;
 }
 
@@ -50,19 +49,6 @@ body {
   height: 100px;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.rainbowButton {
-  background-image: linear-gradient(
-    to right,
-    red,
-    orange,
-    yellow,
-    green,
-    blue,
-    indigo,
-    violet
-  );
 }
 
 .colorButton {
@@ -107,6 +93,30 @@ body {
   );
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.rainbowButton {
+  background-image: linear-gradient(
+    to right,
+    #ff0000,
+    #ffa500,
+    #ffff00,
+    #008000,
+    #0000ff,
+    #4b0082,
+    #ee82ee
+  );
+}
+
+.ninetiesButton {
+  background: linear-gradient(
+    to left,
+    #3c9ee7,
+    #e7993c,
+    #e73c99,
+    #3ce746,
+    #f8e924
+  );
 }
 
 .eraserButton {
