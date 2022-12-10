@@ -11,9 +11,9 @@ const eraserButton = document.querySelector(".eraserButton");
 const sizeValue = document.querySelector(".sizeValue");
 const sizeSlider = document.querySelector(".sizeSlider");
 const colorPicker = document.querySelector(".colorPicker");
+//Event Listeners
 //Default values
 let defaultGridSize = 16;
-
 //Current values
 let currentSize = defaultGridSize;
 
@@ -55,11 +55,7 @@ for (let i = 0; i < controlsButtons.length; i++) {
 
 //color mode button
 colorPicker.oninput = colorPickerMode();
-colorButton.addEventListener("click", () => colorPickerMode());
-
-//experimenting
-
-//experimenting
+colorButton.addEventListener("click", colorPickerMode);
 
 function colorPickerMode() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -72,28 +68,28 @@ function colorPickerMode() {
   );
 }
 
-//Rainbow button
+//Rainbow mode
+rainbowButton.addEventListener("click", () => rainbowColors());
+
 function rainbowColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
-  rainbowButton.addEventListener("click", () => {
-    gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", (event) => {
-        let color = [
-          "#ff0000",
-          "#ffa500",
-          "#ffff00",
-          "#008000",
-          "#0000ff",
-          "#4b0082",
-          "#ee82ee",
-        ];
-        if (event.buttons === 1) {
-          gridCell.style.background =
-            color[Math.floor(Math.random() * color.length)];
-        }
-      })
-    );
-  });
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("mouseover", (event) => {
+      let color = [
+        "#ff0000",
+        "#ffa500",
+        "#ffff00",
+        "#008000",
+        "#0000ff",
+        "#4b0082",
+        "#ee82ee",
+      ];
+      if (event.buttons === 1) {
+        gridCell.style.background =
+          color[Math.floor(Math.random() * color.length)];
+      }
+    })
+  );
 }
 
 //90s colors button
@@ -160,6 +156,6 @@ function changeSize(value) {
 window.onload = () => {
   createGridBoxes(defaultGridSize);
   ninetiesColors();
-  rainbowColors();
+  // rainbowColors();
   eraseOneGridCell();
 };
