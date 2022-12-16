@@ -202,7 +202,7 @@ footer {
   height: 48px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .pageHeading {
     font-size: 48px;
     text-align: center;
