@@ -124,6 +124,7 @@ function rainbowColorsPrecision() {
 //90s colors button
 ninetiesButton.addEventListener("click", ninetiesColors);
 ninetiesButton.addEventListener("click", ninetiesColorsPrecision);
+ninetiesButton.addEventListener("click", ninetiesColorsPrecisionPhone);
 
 function ninetiesColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -143,6 +144,17 @@ function ninetiesColorsPrecision() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   gridCells.forEach((gridCell) =>
     gridCell.addEventListener("click", (event) => {
+      let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
+      gridCell.style.background =
+        color[Math.floor(Math.random() * color.length)];
+    })
+  );
+}
+
+function ninetiesColorsPrecisionPhone() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("touchstart", (event) => {
       let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
       gridCell.style.background =
         color[Math.floor(Math.random() * color.length)];
