@@ -54,8 +54,8 @@ for (let i = 0; i < controlsButtons.length; i++) {
 }
 
 //color mode button
-colorPicker.oninput = colorPickerMode();
 colorButton.addEventListener("click", colorPickerMode);
+colorButton.addEventListener("click", colorPickerModePrecision);
 
 function colorPickerMode() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -68,8 +68,18 @@ function colorPickerMode() {
   );
 }
 
+function colorPickerModePrecision() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("click", (event) => {
+      gridCell.style.background = colorPicker.value;
+    })
+  );
+}
+
 //Rainbow mode
-rainbowButton.addEventListener("click", () => rainbowColors());
+rainbowButton.addEventListener("click", rainbowColors);
+rainbowButton.addEventListener("click", rainbowColorsPrecision);
 
 function rainbowColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -92,43 +102,80 @@ function rainbowColors() {
   );
 }
 
+function rainbowColorsPrecision() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("click", (event) => {
+      let color = [
+        "#ff0000",
+        "#ffa500",
+        "#ffff00",
+        "#008000",
+        "#0000ff",
+        "#4b0082",
+        "#ee82ee",
+      ];
+      gridCell.style.background =
+        color[Math.floor(Math.random() * color.length)];
+    })
+  );
+}
+
 //90s colors button
+ninetiesButton.addEventListener("click", ninetiesColors);
+ninetiesButton.addEventListener("click", ninetiesColorsPrecision);
+
 function ninetiesColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
-  ninetiesButton.addEventListener("click", () => {
-    gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", (event) => {
-        let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
-        if (event.buttons === 1) {
-          gridCell.style.background =
-            color[Math.floor(Math.random() * color.length)];
-        }
-      })
-    );
-  });
+
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("mouseover", (event) => {
+      let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
+      if (event.buttons === 1) {
+        gridCell.style.background =
+          color[Math.floor(Math.random() * color.length)];
+      }
+    })
+  );
+}
+
+function ninetiesColorsPrecision() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("click", (event) => {
+      let color = ["#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#F8E924"];
+      gridCell.style.background =
+        color[Math.floor(Math.random() * color.length)];
+    })
+  );
 }
 
 //Eraser button
+eraserButton.addEventListener("click", eraseOneGridCell);
+eraserButton.addEventListener("click", eraseOneGridCellPrecision);
+
 function eraseOneGridCell() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
-  eraserButton.addEventListener("click", () => {
-    gridCells.forEach((gridCell) =>
-      gridCell.addEventListener("mouseover", (event) => {
-        if (event.buttons === 1) {
-          gridCell.style.background = "#d2d1d1";
-        }
-      })
-    );
-  });
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("mouseover", (event) => {
+      if (event.buttons === 1) {
+        gridCell.style.background = "#d2d1d1";
+      }
+    })
+  );
+}
+
+function eraseOneGridCellPrecision() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("click", (event) => {
+      gridCell.style.background = "#d2d1d1";
+    })
+  );
 }
 
 //Clear button aka "Shake"
 function clearGrid() {
-  // while (gridContainer.firstChild) {
-  //   gridContainer.removeChild(gridContainer.firstChild);
-  // }
-  // createGridBoxes(sizeSlider.value);
-
   gridContainer.innerHTML = "";
 }
 clearButton.addEventListener("click", reloadGrid);

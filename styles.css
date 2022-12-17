@@ -176,7 +176,6 @@ body {
 
 input[type="range"] {
   -webkit-appearance: none;
-
   height: 7px;
   background: #eb1818;
   border-radius: 5px;
