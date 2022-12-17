@@ -124,7 +124,7 @@ function rainbowColorsPrecision() {
 //90s colors button
 ninetiesButton.addEventListener("click", ninetiesColors);
 ninetiesButton.addEventListener("click", ninetiesColorsPrecision);
-ninetiesButton.addEventListener("click", ninetiesColorsPrecisionPhone);
+ninetiesButton.addEventListener("touchstart", ninetiesColorsPrecisionPhone);
 
 function ninetiesColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
