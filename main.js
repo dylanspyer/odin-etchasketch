@@ -56,6 +56,7 @@ for (let i = 0; i < controlsButtons.length; i++) {
 //color mode button
 colorButton.addEventListener("click", colorPickerMode);
 colorButton.addEventListener("click", colorPickerModePrecision);
+colorButton.addEventListener("touchstart", colorPickerModePrecisionPhone);
 
 function colorPickerMode() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -77,9 +78,19 @@ function colorPickerModePrecision() {
   );
 }
 
+function colorPickerModePrecisionPhone() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("touchstart", (event) => {
+      gridCell.style.background = colorPicker.value;
+    })
+  );
+}
+
 //Rainbow mode
 rainbowButton.addEventListener("click", rainbowColors);
 rainbowButton.addEventListener("click", rainbowColorsPrecision);
+rainbowButton.addEventListener("touchstart", rainbowColorsPrecisionPhone);
 
 function rainbowColors() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -106,6 +117,25 @@ function rainbowColorsPrecision() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
   gridCells.forEach((gridCell) =>
     gridCell.addEventListener("click", (event) => {
+      let color = [
+        "#ff0000",
+        "#ffa500",
+        "#ffff00",
+        "#008000",
+        "#0000ff",
+        "#4b0082",
+        "#ee82ee",
+      ];
+      gridCell.style.background =
+        color[Math.floor(Math.random() * color.length)];
+    })
+  );
+}
+
+function rainbowColorsPrecisionPhone() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("touchstart", (event) => {
       let color = [
         "#ff0000",
         "#ffa500",
@@ -165,6 +195,7 @@ function ninetiesColorsPrecisionPhone() {
 //Eraser button
 eraserButton.addEventListener("click", eraseOneGridCell);
 eraserButton.addEventListener("click", eraseOneGridCellPrecision);
+eraserButton.addEventListener("touchstart", eraseOneGridCellPrecisionPhone);
 
 function eraseOneGridCell() {
   const gridCells = gridContainer.querySelectorAll(".gridCell");
@@ -186,11 +217,21 @@ function eraseOneGridCellPrecision() {
   );
 }
 
+function eraseOneGridCellPrecisionPhone() {
+  const gridCells = gridContainer.querySelectorAll(".gridCell");
+  gridCells.forEach((gridCell) =>
+    gridCell.addEventListener("touchstart", (event) => {
+      gridCell.style.background = "#d2d1d1";
+    })
+  );
+}
+
 //Clear button aka "Shake"
 function clearGrid() {
   gridContainer.innerHTML = "";
 }
 clearButton.addEventListener("click", reloadGrid);
+clearButton.addEventListener("touchstart", reloadGrid);
 
 ////experimenting
 function reloadGrid() {
@@ -214,7 +255,4 @@ function changeSize(value) {
 //Default
 window.onload = () => {
   createGridBoxes(defaultGridSize);
-  ninetiesColors();
-  // rainbowColors();
-  eraseOneGridCell();
 };
